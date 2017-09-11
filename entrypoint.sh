@@ -9,7 +9,7 @@ case ${1} in
     initialize
     configure
     migrate
-    /usr/bin/mattermost-platform -config ${MATTERMOST_CONF_DIR}/config.json
+    /opt/ -config ${MATTERMOST_CONF_DIR}/config.json
     ;;
 
   app:migrate)

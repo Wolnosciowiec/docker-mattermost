@@ -29,9 +29,7 @@ cd platform
 sed -i.org 's/sudo //g' Makefile
 sed -i.org 's/amd64/arm/g' Makefile
 make build-linux BUILD_NUMBER=${MATTERMOST_VERSION} GOARCH=arm
-cp /opt/go/bin/platform /usr/bin/mattermost-platform
-chmod +x /usr/bin/mattermost-platform
-chown root:root /usr/bin/mattermost-platform
+chmod +x /opt/go/bin/platform
 
 # cleanup build dependencies, caches and artifacts
 apk del build-dependencies
