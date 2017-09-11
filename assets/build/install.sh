@@ -20,17 +20,16 @@ cd ${MATTERMOST_BUILD_PATH}
 
 # install mattermost
 echo "Cloning Mattermost ${MATTERMOST_VERSION}..."
-git clone -q -b v${MATTERMOST_VERSION} --depth 1 ${MATTERMOST_CLONE_URL}
+if [[ ! -d ./platform ]]; then
+    git clone -q -b v${MATTERMOST_VERSION} --depth 1 ${MATTERMOST_CLONE_URL}
+fi
 
-echo "Building Mattermost..."
+echo "Building Mattermost in ${MATTERMOST_BUILD_PATH}..."
 cd platform
 sed -i.org 's/sudo //g' Makefile
-make build-linux BUILD_NUMBER=${MATTERMOST_VERSION}
-
-echo "Installing Mattermost..."
-cd ${MATTERMOST_HOME}
-curl -sSL https://releases.mattermost.com/${MATTERMOST_VERSION}/mattermost-team-${MATTERMOST_VERSION}-linux-amd64.tar.gz | tar -xvz
-cp ${GOPATH}/bin/platform ./mattermost/bin/platform
+sed -i.org 's/amd64/arm/g' Makefile
+make build-linux BUILD_NUMBER=${MATTERMOST_VERSION} GOARCH=arm
+cp /opt/go/bin/platform /usr/bin/mattermost-platform
 
 # cleanup build dependencies, caches and artifacts
 apk del build-dependencies
