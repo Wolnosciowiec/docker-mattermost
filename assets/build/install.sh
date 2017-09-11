@@ -31,9 +31,13 @@ sed -i.org 's/amd64/arm/g' Makefile
 make build-linux BUILD_NUMBER=${MATTERMOST_VERSION} GOARCH=arm
 chmod +x /opt/go/bin/platform
 
+echo "Installing Mattermost..."
+cd ${MATTERMOST_HOME}
+curl -sSL https://releases.mattermost.com/${MATTERMOST_VERSION}/mattermost-team-${MATTERMOST_VERSION}-linux-amd64.tar.gz | tar -xvz
+cp ${GOPATH}/bin/platform ./mattermost/bin/platform
+
 # cleanup build dependencies, caches and artifacts
 apk del build-dependencies
-ls -la /opt/go
 rm -rf ${GOPATH}/src
 rm -rf /tmp/npm*
 rm -rf /root/.npm
