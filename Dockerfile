@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM armhf/alpine:3.4
 MAINTAINER jasl8r@alum.wpi.edu
 
 ENV MATTERMOST_VERSION=3.5.1 \
@@ -26,5 +26,7 @@ EXPOSE 80/tcp
 
 VOLUME ["${MATTERMOST_DATA_DIR}", "${MATTERMOST_LOG_DIR}"]
 WORKDIR ${MATTERMOST_INSTALL_DIR}
+
+CMD ["/bin/bash"]
 ENTRYPOINT ["/sbin/entrypoint.sh"]
 CMD ["app:start"]
