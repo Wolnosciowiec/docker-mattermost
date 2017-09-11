@@ -33,7 +33,8 @@ chmod +x /opt/go/bin/platform
 
 # cleanup build dependencies, caches and artifacts
 apk del build-dependencies
-rm -rf ${GOPATH}
+ls -la /opt/go
+rm -rf ${GOPATH}/src
 rm -rf /tmp/npm*
 rm -rf /root/.npm
 rm -rf /root/.node-gyp
