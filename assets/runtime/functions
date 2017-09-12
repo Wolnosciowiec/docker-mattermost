@@ -328,6 +328,7 @@ configure() {
   configure_mattermost
   configure_smtp
   configure_gitlab
+  install_configuration_templates
 }
 
 migrate() {
