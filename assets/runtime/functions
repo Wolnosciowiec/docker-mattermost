@@ -29,7 +29,7 @@ install_template() {
   local SRC=${2}
   local DEST=${3}
   local MODE=${4:-0644}
-  if [[ -f ${SYSCONF_TEMPLATES_DIR}/${SRC} ]]; then
+  if [[ -f ${SYSCONF_TEMPLATES_DIR}/${SRC} ]] && [[ ! -e ${DEST} ]]; then
     cp ${SYSCONF_TEMPLATES_DIR}/${SRC} ${DEST}
   fi
   chmod ${MODE} ${DEST}
