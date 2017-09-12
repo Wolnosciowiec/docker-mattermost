@@ -37,6 +37,7 @@ curl -sSL https://releases.mattermost.com/${MATTERMOST_VERSION}/mattermost-team-
 cp ${GOPATH}/bin/platform ./mattermost/bin/platform
 
 echo "Putting version number..."
+mkdir -p /opt/mattermost/data/
 echo "${MATTERMOST_VERSION}" > ${MATTERMOST_DATA_DIR}/VERSION
 
 # cleanup build dependencies, caches and artifacts
