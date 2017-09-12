@@ -1,6 +1,6 @@
 mysql:
   restart: always
-  image: mysql:latest
+  image: hypriot/rpi-mysql:latest
   environment:
     - MYSQL_USER=mattermost
     - MYSQL_PASSWORD=password
@@ -11,7 +11,7 @@ mysql:
 
 mattermost:
   restart: always
-  image: jasl8r/mattermost:3.4.0-1
+  build: ./
   links:
     - mysql:mysql
   ports:
