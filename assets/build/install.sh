@@ -25,7 +25,8 @@ git clone -q -b v${MATTERMOST_VERSION} --depth 1 ${MATTERMOST_CLONE_URL}
 echo "Building Mattermost..."
 cd platform
 sed -i.org 's/sudo //g' Makefile
-make build-linux BUILD_NUMBER=${MATTERMOST_VERSION}
+sed -i.org 's/amd64/arm/g' Makefile
+make build-linux BUILD_NUMBER=${MATTERMOST_VERSION} GOARCH=arm
 
 echo "Installing Mattermost..."
 cd ${MATTERMOST_HOME}

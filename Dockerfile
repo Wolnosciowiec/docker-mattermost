@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM armhf/alpine:3.4
 MAINTAINER jasl8r@alum.wpi.edu
 
 ENV MATTERMOST_VERSION=3.5.1 \

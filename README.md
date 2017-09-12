@@ -1,3 +1,7 @@
+# Docker Mattermost for ARM
+
+This docker image was forked and adjusted to run on ARMv7 machines.
+
 [![Docker Repository on Quay.io](https://quay.io/repository/jasl8r/mattermost/status "Docker Repository on Quay.io")](https://quay.io/repository/jasl8r/mattermost) [![](https://badge.imagelayers.io/jasl8r/mattermost:latest.svg)](https://imagelayers.io/?images=jasl8r/mattermost:latest 'Get your own badge on imagelayers.io')
 
 # Docker Mattermost
